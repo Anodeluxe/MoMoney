@@ -1,11 +1,11 @@
-name: Frontend CI/CD Primary
+name: Frontend CI/CD Secondary
 
 on:
   push:
     branches: [main]
     paths:
       - frontend/**
-      - .github/workflows/frontend-ci.yml
+      - .github/workflows/frontend-secondary-ci.yml
 
 permissions:
   contents: read
@@ -14,8 +14,8 @@ permissions:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository_owner }}/momoney-frontend
-  NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL_PRIMARY }}
-  IMAGE_TAG: primary
+  NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL_SECONDARY }}
+  IMAGE_TAG: secondary
 
 jobs:
   frontend-build-test:
@@ -27,7 +27,7 @@ jobs:
       - name: Validate frontend API URL
         run: |
           test -n "${NEXT_PUBLIC_API_URL}" || {
-            echo "::error::Set GitHub Actions variable NEXT_PUBLIC_API_URL_PRIMARY";
+            echo "::error::Set GitHub Actions variable NEXT_PUBLIC_API_URL_SECONDARY";
             exit 1;
           }
 
@@ -82,5 +82,5 @@ jobs:
             NEXT_PUBLIC_API_URL=${{ env.NEXT_PUBLIC_API_URL }}
           tags: |
             ghcr.io/${{ github.repository_owner }}/momoney-frontend:${{ env.IMAGE_TAG }}
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/momoney-frontend:primary
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/momoney-frontend:secondary
           cache-to: type=inline

@@ -1,11 +1,11 @@
-name: Backend CI/CD Primary
+name: Backend CI/CD Secondary
 
 on:
   push:
     branches: [main]
     paths:
       - backend/**
-      - .github/workflows/backend-ci.yml
+      - .github/workflows/backend-secondary-ci.yml
 
 permissions:
   contents: read
@@ -104,6 +104,6 @@ jobs:
           context: ./backend
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/momoney-backend:primary
-          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/momoney-backend:primary
+            ghcr.io/${{ github.repository_owner }}/momoney-backend:secondary
+          cache-from: type=registry,ref=ghcr.io/${{ github.repository_owner }}/momoney-backend:secondary
           cache-to: type=inline
