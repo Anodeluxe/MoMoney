@@ -10,7 +10,8 @@ Proyek ini terdiri dari tiga bagian utama:
 
 ## Anggota Kelompok
 
-- Kelompok 12
+### Kelompok 12
+
 - Ketua Kelompok: AZFANOVA SAMMY RAFIF SAPUTRA - 521764
 - Anggota 1: Polikarpus Arya Pradhanika - 512404
 - Anggota 2: Gabriele Ghea De Palma - 512218
